@@ -12,10 +12,16 @@ editor: visual
 library(youdrawitR)
 ```
 
+## GSOC Introduction
+
+<!-- Introduction, Application process, timeline, my project -->
+
 ## Overview of the `youdrawitR` Package
 
 -   Interactive Data Visualization in R
 -   Engaging users with data
+
+<!-- Include Output -->
 
 ## Motivations Behind Creating the Package
 
@@ -31,6 +37,8 @@ library(youdrawitR)
     -   Install: `devtools::install_github("earobinson95/youdrawitR")`
     -   Load: `library(youdrawitR)`
 -   Data generation: `customDataGen` and `linearDataGen`
+
+<!-- drawr function for data visualization -->
 
 ## Data Generation with `youdrawitR`
 
@@ -246,12 +254,32 @@ drawr(loess_data,
 
 </details>
 
+## Your Turn
+
+<!-- Let user install and use package -->
+
+<!-- Questions about what worked -->
+
+## Integrating Into HTML
+
+<!-- Quarto, Shiny App, Save to Html Option -->
+
 ## Shiny App & `youdrawitR`
 
 -   Real-time interaction with 'Can You Draw It?' app
 -   Change data sources: Input, Simulate, or Use R Dataset
 -   Drawing, saving, and resetting functionalities
 -   Customization: Color changes, tooltips, confidence intervals.
+
+<!-- Let Them Try Shiny App -->
+
+<!-- Mention Inner Workings (Try it yourself) -->
+
+<!-- Feedback -->
+
+## Drawing Cat Competition
+
+
 
 # Importance & Uses of `youdrawitR`
 
