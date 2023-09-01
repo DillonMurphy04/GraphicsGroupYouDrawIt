@@ -279,8 +279,6 @@ drawr(loess_data,
 
 ## Drawing Cat Competition
 
-
-
 # Importance & Uses of `youdrawitR`
 
 ## Potential Applications
