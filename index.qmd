@@ -63,6 +63,8 @@ Add additional functionality for broader use
     -   Load: `library(youdrawitR)`
 -   Data generation: `customDataGen` and `linearDataGen`
 
+Package website:[https://earobinson95.github.io/youdrawitR/](https://earobinson95.github.io/youdrawitR/)
+
 <!-- drawr function for data visualization -->
 
 ## Data Generation with `youdrawitR`
