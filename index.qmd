@@ -12,7 +12,7 @@ editor: source
 library(youdrawitR)
 ```
 
-## Google Summer of Code 2023 {background-image=images/GSOCtimeline.png background-size="90%"}
+## Google Summer of Code 2023 {background-image=images/GSOCtimeline.png background-size="100%"}
 
 ## Overview of the `youdrawitR` Package
 
