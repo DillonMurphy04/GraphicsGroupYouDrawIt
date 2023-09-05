@@ -12,9 +12,7 @@ editor: source
 library(youdrawitR)
 ```
 
-## **Google Summer of Code 2023**
-
-![](images/GSOCtimeline.png)
+## Google Summer of Code 2023 {background-image=images/GSOCtimeline.png background-size="90%"}
 
 ## Overview of the `youdrawitR` Package
 
@@ -25,22 +23,19 @@ library(youdrawitR)
 
 ## Background for Measuring Trends
 
-
 -   Fitting Trends by Eye -- maneuvering a string, black thread, or ruler.
 
-:::: columns
+::: columns
 ::: column
 -   [New York Times 'You Draw It' feature](https://www.nytimes.com/interactive/2015/05/28/upshot/you-draw-it-how-family-income-affects-childrens-college-chances.html) (Aisch, Cox, and Quealy, 2015)
 -   ['You Draw It': Implementation of Visually Fitted Trends with `r2d3`](https://jds-online.org/journal/JDS/article/1317/info)
 -   [Eye Fitting Straight Lines in the Modern Era](https://www.tandfonline.com/doi/abs/10.1080/10618600.2022.2140668?journalCode=ucgs20)
 :::
+
 ::: column
-
 ![](images/nyt-caraccidents.png)
-
 :::
-::::
-
+:::
 
 ## Motivations Behind Creating the Package
 
@@ -50,7 +45,6 @@ D3 is not intuitive for us R users `r fontawesome::fa("computer")` `r fontawesom
 #| fig-align: center
 knitr::include_graphics("images/code-sketch.png")
 ```
-
 
 Add additional functionality for broader use
 
@@ -68,7 +62,7 @@ Add additional functionality for broader use
 
     ![](images/youdrawit_flowchart.png)
 
-Package website:[https://earobinson95.github.io/youdrawitR/](https://earobinson95.github.io/youdrawitR/)
+Package website:<https://earobinson95.github.io/youdrawitR/>
 
 ## Data Generation with `youdrawitR`
 
@@ -128,26 +122,19 @@ drawr(custom_data,
 :::
 :::
 
-## {auto-animate=true}
+##  {auto-animate="true"}
 
-::: {.columns}
-
+::: columns
 ::: {.column style="max-width: min-content; white-space: nowrap;"}
-
 **More Examples:**
-
-::: 
-
-::: {.column style="flex: 1; text-align: left;"}
-
-**Logistic Regression**
-
-::: 
-
 :::
 
-::: {.panel-tabset}
+::: {.column style="flex: 1; text-align: left;"}
+**Logistic Regression**
+:::
+:::
 
+::: panel-tabset
 ### Code
 
 ```{r echo=TRUE, eval = FALSE}
@@ -192,29 +179,21 @@ drawr(logistic_data,
       x_lab = "Miles per Gallon",
       y_lab = "High Horsepower (1 = Yes, 0 = No)")
 ```
-
 :::
 
-## {auto-animate=true}
+##  {auto-animate="true"}
 
 ::: columns
-
 ::: {.column style="max-width: min-content; white-space: nowrap;"}
-
 **More Examples:**
-
-::: 
-
-::: {.column style="flex: 1; text-align: left; white-space: nowrap;"}
-
-**Polynomial Regression & Customized Plot**
-
-::: 
-
 :::
 
-::: {.panel-tabset}
+::: {.column style="flex: 1; text-align: left; white-space: nowrap;"}
+**Polynomial Regression & Customized Plot**
+:::
+:::
 
+::: panel-tabset
 ### Code
 
 ```{r echo=TRUE, eval = FALSE}
@@ -263,29 +242,21 @@ drawr(poly_data,
       show_tooltip = TRUE,
       aspect_ratio = 1.5)
 ```
-
 :::
 
-## {auto-animate=true}
+##  {auto-animate="true"}
 
 ::: columns
-
 ::: {.column style="max-width: min-content; white-space: nowrap;"}
-
 **More Examples:**
-
-::: 
-
-::: {.column style="flex: 1; text-align: left;"}
-
-**Loess Regression**
-
-::: 
-
 :::
 
-::: {.panel-tabset}
+::: {.column style="flex: 1; text-align: left;"}
+**Loess Regression**
+:::
+:::
 
+::: panel-tabset
 ### Code
 
 ```{r echo=TRUE, eval = FALSE}
@@ -323,7 +294,6 @@ drawr(loess_data,
       x_lab = "Miles per Gallon",
       y_lab = "Horsepower")
 ```
-
 :::
 
 ## Your Turn 1
@@ -396,11 +366,13 @@ jsonlite::fromJSON(input$newLineData)
 -   Customization: Color changes, tooltips, confidence intervals.
 -   Saving users drawn lines.
 
-Shiny App:[https://dillonmurphy.shinyapps.io/youdrawit/](https://dillonmurphy.shinyapps.io/youdrawit/)
+Shiny App:<https://dillonmurphy.shinyapps.io/youdrawit/>
 
 ## Try For Yourself
 
-<iframe width = "100%" height = "100%" src="https://dillonmurphy.shinyapps.io/youdrawit/"></iframe>
+<iframe width="100%" height="100%" src="https://dillonmurphy.shinyapps.io/youdrawit/">
+
+</iframe>
 
 ## Drawing Cat Competition
 
