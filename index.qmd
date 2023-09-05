@@ -12,9 +12,9 @@ editor: visual
 library(youdrawitR)
 ```
 
-## GSOC Introduction
+## **Google Summer of Code 2023**
 
-<!-- Introduction, Application process, timeline, my project -->
+![](figures/GSOCtimeline.png)
 
 ## Overview of the `youdrawitR` Package
 
@@ -31,14 +31,17 @@ library(youdrawitR)
 
 # Getting Started with youdrawitR
 
-## Setting Up and Preparing Data with `youdrawitR`
+## Using `youdrawitR`
 
--   Installation and loading:
-    -   Install: `devtools::install_github("earobinson95/youdrawitR")`
-    -   Load: `library(youdrawitR)`
--   Data generation: `customDataGen` and `linearDataGen`
+-   Install: `devtools::install_github("earobinson95/youdrawitR")`
 
-<!-- drawr function for data visualization -->
+-   Load: `library(youdrawitR)`
+
+-   Data generation: `customDataGen()` and `linearDataGen()`
+
+-   Visualization: `drawr()`
+
+    ![](figures/youdrawit_flowchart.png)
 
 ## Data Generation with `youdrawitR`
 
@@ -98,14 +101,16 @@ drawr(custom_data,
 :::
 :::
 
-## More Examples
+## More Examples {.scrollable}
 
-<details>
+::: {.panel-tabset}
 
-<summary>Logistic Regression</summary>
+### Logistic
 
-::: columns
-::: {.column width="50%"}
+::: {.panel-tabset}
+
+### Code
+
 ```{r echo=TRUE, eval = FALSE}
 # Generating data with logistic regression
 # For this example, we'll need a binary response variable. 
@@ -126,9 +131,9 @@ drawr(logistic_data,
       y_lab = "High Horsepower (1 = Yes, 0 = No)")
 
 ```
-:::
 
-::: {.column width="50%"}
+### Plot
+
 ```{r}
 # Generating data with logistic regression
 # For this example, we'll need a binary response variable. 
@@ -148,17 +153,15 @@ drawr(logistic_data,
       x_lab = "Miles per Gallon",
       y_lab = "High Horsepower (1 = Yes, 0 = No)")
 ```
+
 :::
-:::
 
-</details>
+### Polynomial & Customized
 
-<details>
+::: {.panel-tabset}
 
-<summary>Polynomial Regression with Customized Output</summary>
+### Code
 
-::: columns
-::: {.column width="50%"}
 ```{r echo=TRUE, eval = FALSE}
 # Generating data with polynomial regression of degree 2
 poly_data <- customDataGen(
@@ -178,11 +181,12 @@ drawr(poly_data,
       drawn_line_color = "red",
       true_line_color = "rgba(0,255,0,.8)",
       draw_region_color = "#FFFFFF",
-      show_tooltip = TRUE)
+      show_tooltip = TRUE,
+      aspect_ratio = 1.5)
 ```
-:::
 
-::: {.column width="50%"}
+### Plot
+
 ```{r}
 poly_data <- customDataGen(
   df = mtcars,
@@ -201,19 +205,18 @@ drawr(poly_data,
       drawn_line_color = "red",
       true_line_color = "rgba(0,255,0,.8)",
       draw_region_color = "#FFFFFF",
-      show_tooltip = TRUE)
+      show_tooltip = TRUE,
+      aspect_ratio = 1.5)
 ```
+
 :::
-:::
 
-</details>
+### Loess
 
-<details>
+::: {.panel-tabset}
 
-<summary>Loess Regression</summary>
+### Code
 
-::: columns
-::: {.column width="50%"}
 ```{r echo=TRUE, eval = FALSE}
 # Generating data with loess regression
 loess_data <- customDataGen(
@@ -230,9 +233,9 @@ drawr(loess_data,
       x_lab = "Miles per Gallon",
       y_lab = "Horsepower")
 ```
-:::
 
-::: {.column width="50%"}
+### Plot
+
 ```{r}
 # Generating data with loess regression
 loess_data <- customDataGen(
@@ -249,10 +252,10 @@ drawr(loess_data,
       x_lab = "Miles per Gallon",
       y_lab = "Horsepower")
 ```
-:::
+
 :::
 
-</details>
+:::
 
 ## Your Turn
 
@@ -260,9 +263,59 @@ drawr(loess_data,
 
 <!-- Questions about what worked -->
 
-## Integrating Into HTML
+## Embedding `youdrawitR` into HTML
 
-<!-- Quarto, Shiny App, Save to Html Option -->
+::: columns
+::: {.column width="50%"}
+-   Quarto
+
+```{r echo=TRUE}
+# Render with quarto/Rmarkdown  
+## For quarto: use quarto >= 1.3.450 or knitr <1.43
+drawr(linear_data)
+```
+:::
+
+::: {.column width="50%"}
+-   Direct Save as HTML
+
+```{r echo=TRUE, eval = FALSE}
+# Save into an html
+drawr(linear_data, 
+      save_html_file_path = "myViz.html")
+
+## Embedded HTML below
+```
+
+<iframe src="figures/myViz.html" width="100%" height="400px">
+
+</iframe>
+:::
+:::
+
+## Integrating Into Shiny
+
+-   Displaying Visualizations
+
+```{r echo=TRUE, eval = FALSE}
+# ui 
+r2d3::d3Output("shinydrawr", height = "500px", width = "800px")
+
+# server
+output$shinydrawr <- r2d3::renderD3({ drawr(data, hide_buttons = T })
+```
+
+-   Retrieving Drawn Data
+
+```{r echo=TRUE, eval = FALSE}
+# Drawn data is sent to shiny from the js file upon completion of the original line.
+
+# Fetch the original line data
+jsonlite::fromJSON(input$completedLineData)
+
+# Fetch any additional lines drawn
+jsonlite::fromJSON(input$newLineData)
+```
 
 ## Shiny App & `youdrawitR`
 
@@ -271,11 +324,9 @@ drawr(loess_data,
 -   Drawing, saving, and resetting functionalities
 -   Customization: Color changes, tooltips, confidence intervals.
 
-<!-- Let Them Try Shiny App -->
+## Try For Yourself
 
-<!-- Mention Inner Workings (Try it yourself) -->
-
-<!-- Feedback -->
+<iframe width = "100%" height = "100%" src="https://dillonmurphy.shinyapps.io/youdrawit/"></iframe>
 
 ## Drawing Cat Competition
 
