@@ -1,5 +1,7 @@
 ---
 title: "Overview of the youdrawitR Package"
+title-slide-attributes: 
+  data-notes: Hello everyone, my name is Dillon Murphy, and I'm an undergrad student at Cal Poly in San Luis Obispo, California. Today, I am excited to present an overview of the youdrawitR package with my co-presenter Emily. This package serves as a tool for interactive data visualization in R.
 subtitle: "Interactive Data Visualization in R"
 author: "Dillon Murphy, Cal Poly - San Luis Obispo, CA"
 format: revealjs
@@ -12,14 +14,33 @@ editor: source
 library(youdrawitR)
 ```
 
-## Google Summer of Code 2023 {background-image=images/GSOCtimeline.png background-size="100%"}
+## Google Summer of Code 2023 {background-image="images/GSOCtimeline.png" background-size="100%"}
+
+::: notes
+Before diving into the package, I'd like to briefly touch upon my journey with Google Summer of Code this summer.
+
+For those unfamiliar with Google Summer of Code, it is a global program that offers students stipends to write code for open source projects, and aims to bring student developers into the open source community. If you look at the timeline displayed on this slide, it provides a snapshot of how the program is structured.
+
+I had the privilege of developing the youdrawitR package during the Google Summer of Code 2023, under the guidance of my mentors: Emily, Susan, and Heike,
+
+And I highly recommend this opportunity for students passionate about coding and open-source contributions, especially for those who might consider themselves beginner programmers or developers. It's a great program that taught me lots of practical skills and granted me a decent amount of money.
+:::
 
 ## Overview of the `youdrawitR` Package
 
--   Interactive Data Visualization in R
--   Engaging users with data
+`r fontawesome::fa("chart-line")`  Interactive Data Visualization in R
 
-![](images/drawr-example-1.gif)
+`r fontawesome::fa("user-check")` Engaging users with data
+
+<img src="images/drawr-example-1.gif" style="display: block; margin: auto;"/>
+
+::: notes
+Alright, now let's get into the primary focus of the presentation, the `youdrawitR` package.
+
+As the name suggests, the primary feature of this package is its interactive nature. `youdrawitR` presents a method for users to actively engage with data. Instead of merely observing static graphs, users can draw and make their own interpretations.
+
+Take a look at the gif on the screen, you'll see an example in action. The user begins by drawing a boundary for the confidence region and then sketches their guess for the line of best fit. After completion of the guess, the real confidence region and line of best fit is overlayed, which allows for a direct comparison. This hands-on approach encourages active participation in data analysis, and allows us to see how our intuitive perceptions align with actual data trends.
+:::
 
 ## Background for Measuring Trends
 
