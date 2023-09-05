@@ -1,9 +1,9 @@
 ---
 title: "Overview of the youdrawitR Package"
 subtitle: "Interactive Data Visualization in R"
-author: "Dillon Murphy"
+author: "Dillon Murphy, Cal Poly - San Luis Obispo, CA"
 format: revealjs
-editor: visual
+editor: source
 ---
 
 # Introduction
@@ -14,20 +14,45 @@ library(youdrawitR)
 
 ## **Google Summer of Code 2023**
 
-![](figures/GSOCtimeline.png)
+![](images/GSOCtimeline.png)
 
 ## Overview of the `youdrawitR` Package
 
 -   Interactive Data Visualization in R
 -   Engaging users with data
 
-<!-- Include Output -->
+![](images/drawr-example-1.gif)
+
+## Background for Measuring Trends
+
+
+-   Fitting Trends by Eye -- maneuvering a string, black thread, or ruler.
+
+:::: columns
+::: column
+-   [New York Times 'You Draw It' feature](https://www.nytimes.com/interactive/2015/05/28/upshot/you-draw-it-how-family-income-affects-childrens-college-chances.html) (Aisch, Cox, and Quealy, 2015)
+-   ['You Draw It': Implementation of Visually Fitted Trends with `r2d3`](https://jds-online.org/journal/JDS/article/1317/info)
+-   [Eye Fitting Straight Lines in the Modern Era](https://www.tandfonline.com/doi/abs/10.1080/10618600.2022.2140668?journalCode=ucgs20)
+:::
+::: column
+
+![](images/nyt-caraccidents.png)
+
+:::
+::::
+
 
 ## Motivations Behind Creating the Package
 
--   Engaging users with data
--   Enhancing data literacy
--   Bridging the gap between data and interpretation
+D3 is not intuitive for us R users `r fontawesome::fa("computer")` `r fontawesome::fa("keyboard")`
+
+```{r}
+#| fig-align: center
+knitr::include_graphics("images/code-sketch.png")
+```
+
+
+Add additional functionality for broader use
 
 # Getting Started with youdrawitR
 
@@ -41,7 +66,9 @@ library(youdrawitR)
 
 -   Visualization: `drawr()`
 
-    ![](figures/youdrawit_flowchart.png)
+    ![](images/youdrawit_flowchart.png)
+
+Package website:[https://earobinson95.github.io/youdrawitR/](https://earobinson95.github.io/youdrawitR/)
 
 ## Data Generation with `youdrawitR`
 
@@ -257,9 +284,11 @@ drawr(loess_data,
 
 :::
 
-## Your Turn
+## Your Turn 1
 
 <!-- Let user install and use package -->
+
+Using the documentation `help(drawr)`, change xxxx
 
 <!-- Questions about what worked -->
 
@@ -287,7 +316,7 @@ drawr(linear_data,
 ## Embedded HTML below
 ```
 
-<iframe src="figures/myViz.html" width="100%" height="400px">
+<iframe src="images/myViz.html" width="100%" height="400px">
 
 </iframe>
 :::
@@ -323,6 +352,9 @@ jsonlite::fromJSON(input$newLineData)
 -   Change data sources: Input, Simulate, or Use R Dataset
 -   Drawing, saving, and resetting functionalities
 -   Customization: Color changes, tooltips, confidence intervals.
+-   Saving users drawn lines.
+
+Shiny Appp:[https://dillonmurphy.shinyapps.io/youdrawit/](https://dillonmurphy.shinyapps.io/youdrawit/)
 
 ## Try For Yourself
 
@@ -337,6 +369,7 @@ jsonlite::fromJSON(input$newLineData)
 -   Engaging educational tool.
 -   Personal data visualization projects.
 -   Encouraging active participation in data interpretation.
+-   Testing graphics for perception.
 
 ## Future Directions for `youdrawitR`
 
