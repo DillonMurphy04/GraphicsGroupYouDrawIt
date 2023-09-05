@@ -128,11 +128,23 @@ drawr(custom_data,
 :::
 :::
 
-## More Examples {.scrollable}
+## {auto-animate=true}
 
-::: {.panel-tabset}
+::: {.columns}
 
-### Logistic
+::: {.column style="max-width: min-content; white-space: nowrap;"}
+
+**More Examples:**
+
+::: 
+
+::: {.column style="flex: 1; text-align: left;"}
+
+**Logistic Regression**
+
+::: 
+
+:::
 
 ::: {.panel-tabset}
 
@@ -183,7 +195,23 @@ drawr(logistic_data,
 
 :::
 
-### Polynomial & Customized
+## {auto-animate=true}
+
+::: columns
+
+::: {.column style="max-width: min-content; white-space: nowrap;"}
+
+**More Examples:**
+
+::: 
+
+::: {.column style="flex: 1; text-align: left; white-space: nowrap;"}
+
+**Polynomial Regression & Customized Plot**
+
+::: 
+
+:::
 
 ::: {.panel-tabset}
 
@@ -238,7 +266,23 @@ drawr(poly_data,
 
 :::
 
-### Loess
+## {auto-animate=true}
+
+::: columns
+
+::: {.column style="max-width: min-content; white-space: nowrap;"}
+
+**More Examples:**
+
+::: 
+
+::: {.column style="flex: 1; text-align: left;"}
+
+**Loess Regression**
+
+::: 
+
+:::
 
 ::: {.panel-tabset}
 
@@ -279,8 +323,6 @@ drawr(loess_data,
       x_lab = "Miles per Gallon",
       y_lab = "Horsepower")
 ```
-
-:::
 
 :::
 
@@ -331,7 +373,7 @@ drawr(linear_data,
 r2d3::d3Output("shinydrawr", height = "500px", width = "800px")
 
 # server
-output$shinydrawr <- r2d3::renderD3({ drawr(data, hide_buttons = T })
+output$shinydrawr <- r2d3::renderD3({ drawr(data, hide_buttons = T )})
 ```
 
 -   Retrieving Drawn Data
@@ -354,7 +396,7 @@ jsonlite::fromJSON(input$newLineData)
 -   Customization: Color changes, tooltips, confidence intervals.
 -   Saving users drawn lines.
 
-Shiny Appp:[https://dillonmurphy.shinyapps.io/youdrawit/](https://dillonmurphy.shinyapps.io/youdrawit/)
+Shiny App:[https://dillonmurphy.shinyapps.io/youdrawit/](https://dillonmurphy.shinyapps.io/youdrawit/)
 
 ## Try For Yourself
 
