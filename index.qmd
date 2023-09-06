@@ -23,7 +23,7 @@ For those unfamiliar with Google Summer of Code, it is a global program that off
 
 I had the privilege of developing the youdrawitR package during the Google Summer of Code 2023, under the guidance of my mentors: Emily, Susan, and Heike,
 
-And I highly recommend this opportunity for students passionate about coding and open-source contributions, especially for those who might consider themselves beginner programmers or developers. It's a great program that taught me lots of practical skills and granted me a decent amount of money.
+It was a great experience and I highly recommend this opportunity for students passionate about coding and open-source contributions, especially for those who might consider themselves beginner programmers or developers. It's a great program that taught me lots of practical skills and granted me a decent amount of money.
 :::
 
 ## Overview of the `youdrawitR` Package
@@ -85,6 +85,14 @@ Add additional functionality for broader use
 
 Package website:<https://earobinson95.github.io/youdrawitR/>
 
+::: notes
+To get started, the installation process is pretty straightforward. You can install the package directly from GitHub using the devtools package. Once installed, simply load it like any other R package.
+
+The package provides two functions for data generation and preparation: customDataGen() and linearDataGen(). For visualization, use the formatted data from these function and input them into the drawr() function, as seen in the flowchart. 
+
+If you'd like to explore more feel free to visit the package website listed here for comprehensive documentation and examples. We will also play around with the package in R later in this presentation, so I recommend keeping that website for then.
+:::
+
 ## Data Generation with `youdrawitR`
 
 ::: columns
@@ -119,6 +127,14 @@ linear_data <- linearDataGen(
 :::
 :::
 
+::: notes
+Let's briefly go over the functions associated with the data preparation process.
+
+On the left, you can see the customDataGen function. This function allows you to take any existing dataset, like mtcars in this example and make them suitable for the drawr() function. Some of the parameter option include defining your x and y variables, specifying the type of regression, or deciding if you want to generate a 95% confidence interval.
+
+On the right, we have the linearDataGen function. This function is designed to simulate linear data based on the parameters you provide, like the slope, y-intercept, and standard deviation. It generates the simulated data in a format suitable for the drawr() function.
+:::
+
 # Visualization with youdrawitR
 
 ## Visualizing with `drawr`
@@ -141,6 +157,18 @@ drawr(custom_data,
       conf_int = TRUE)
 ```
 :::
+:::
+
+::: notes
+Now we can briefly discuss the drawr function, which creates the interactive plots. This function allows users to actively engage with the generated data by drawing their predictions and is equipped with several customization features.
+
+Take a look at the sample code presented. We're visualizing the data we generate in the previous slide with the customDataGen function.
+
+I encourage anyone who is following along on their own device to try playing around with the output on their computer. If you find any latency with the rendering of the output, which seems to be an issue with quarto slides, a quick page refresh should fix the issue.
+
+One feature worth highlighting is the New Line button. This button allows the user to add suplementary lines to their plot which can be used in a variety of ways, for instance drawing the upper and lower bounds of a 95% confidence interval like the gif in the beginning. For this example, we can see that a confidence interval has been generated with the parameter conf_int = TRUE.
+
+In the next slide we will go over a few more example of using the drawr and customDataGen functions with different customizations and regressions.
 :::
 
 ##  {auto-animate="true"}
@@ -202,6 +230,14 @@ drawr(logistic_data,
 ```
 :::
 
+::: notes
+Here is our first additional example, we're using a logistic regression. Logistic regression is great for when you have a binary response variable. For our purpose, we've created a binary variable high_hp which signifies whether a car has high horsepower based on a threshold of 120.
+
+In the code, we prepare this data using the customDataGen function and then visualize it with drawr. What's showcased here is the probability of a car having high horsepower versus its miles per gallon.
+
+Now let's look at the plot. Drawing a logistic regression may prove to be less intuitive than a normal linear regression, and I again encourage to try for yourself.
+:::
+
 ##  {auto-animate="true"}
 
 ::: columns
@@ -259,10 +295,20 @@ drawr(poly_data,
       y_lab = "Horsepower",
       drawn_line_color = "red",
       true_line_color = "rgba(0,255,0,.8)",
-      draw_region_color = "#FFFFFF",
+      draw_region_color = NULL,
       show_tooltip = TRUE,
       aspect_ratio = 1.5)
 ```
+:::
+
+::: notes
+Now, for the next example we will be using a polynomial regression. Specifically, we're looking at a polynomial of degree 2. Polynomial regressions allow us to capture more intricate relationships that aren't strictly linear, and can also be a little harder to predict compared to linear regression.
+
+In our code, we utilize the customDataGen function for data prep, specifying the regression type as "polynomial" and degree as 2.
+
+Additionally, look at the code for the drawr function. This time, we've also added a bit more flair to our plot with customized colors and display settings.
+
+Taking a look at the plot you can see the progress region has been removed, a tooltip is now shown, the drawn line is now red,the plot is now wider, and the true line is now green. Such customizations can aid in data interpretation or simply make your visualization more engaging.
 :::
 
 ##  {auto-animate="true"}
@@ -317,6 +363,14 @@ drawr(loess_data,
 ```
 :::
 
+::: notes
+Our last example includes the final regression type currently offered in the youdrawitR package, loess regression. Loess regression is great for capturing local patterns in data.
+
+In our code, we generate the data using the customDataGen function and define the regression type as "loess". We've also chosen a span parameter which dictates the degree of smoothing.
+
+The resulting drawr visualization presents horsepower against miles per gallon. Lets take a look at the plot and try for ourselves. As Emily has described it before, drawing loess regression is like giving a child a crayon and asking them to draw a line between the points on a graph.
+:::
+
 ## Your Turn 1
 
 <!-- Let user install and use package -->
@@ -354,6 +408,8 @@ drawr(linear_data,
 </iframe>
 :::
 :::
+
+# Using `youdrawitR` with Shiny
 
 ## Integrating Into Shiny
 
