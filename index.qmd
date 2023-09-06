@@ -414,7 +414,7 @@ An advantage of using youdrawitR is the ease with which you can embed and share 
 
 On the left, you'll see the integration using either Quarto or RMarkdown. Simply create your plot using the drawr function and then render it within your document. Just a heads-up for compatibility: If you're using Quarto, ensure you're using the latest version.
 
-On the right, provided is a straightforward method to save your visualization directly as an HTML file. This comes in handy if you're looking to quickly archive your visualization or share it as a standalone file. With the drawr function, just specify your desired file path, and it will handle the rest for you. Sepcifying just the name of the file will save it to your current working directory. Once saved, this visualization can be opened and interacted with in any standard web browser.
+On the right, provided is a straightforward method to save your visualization directly as an HTML file. This comes in handy if you're looking to quickly archive your visualization or share it as a standalone file. With the drawr function, just specify your desired file path, and it will handle the rest for you. Specifying just the name of the file will save it to your current working directory. Once saved, this visualization can be opened and interacted with in any standard web browser.
 :::
 
 # Using `youdrawitR` with Shiny
