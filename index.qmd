@@ -462,9 +462,9 @@ There are multiple ways to access the app. If you're looking to check it out on 
 
 ## Your Turn 2: Drawing Cat Competition
 
-<!-- Add screenshot of Dillon's cat drawing -->
-
 Add your cat to the slide deck at <https://docs.google.com/presentation/d/1prNX34FKP45x9FkRH_f35ejHhDUAdrfRHWAjY_hacQU/edit?usp=sharing>
+
+![](images/cat.png)
 
 ## Integrating Into Shiny
 
@@ -506,7 +506,7 @@ session$sendCustomMessage("newLine", "true")
 :::
 
 ::: notes
-Another advantage of the youdrawitR package is how it can be easily integrated into Shiny, one of R's most powerful tools for creating interactive web application's.
+Now, let's quickly dicuss how to integrate youdrawitR into your own shiny app's and then in the next slide we will try making a very basic shiny app using the package for ourselves.
 
 To display the interactive visualizations in a Shiny application, there are just a few steps. In the user interface, the function r2d3::d3Output creates a placeholder for our interactive plot and then on the server side, we use r2d3::renderD3 to generate and render the interactive plot using our drawr function and whatever user provided data we have. Here, the hide_buttons parameter ensures a cleaner user experience by removing additional buttons from the visualization. These buttons can be recreated as shiny buttons in the shiny app with the sendCustomMessage function which gives the application a consistent and cleaner look, however hiding and recreating the buttons is optional.
 
@@ -524,13 +524,70 @@ Lastly, an important feature of the youdrawitR package is the ability to save th
 
 ```{r}
 #| eval: false
+#| echo: true
 
+library(shiny)
+
+# Define UI
+fluidPage(
+  # Application title
+  titlePanel("My drawr plot"),
+      mainPanel(
+        # Show the interactive plot of the generated data
+        r2d3::d3Output("shinydrawr"),
+        
+        fluidRow(
+          column(
+            width = 4,
+            # Add the reset button
+            actionButton("resetBtn", "Reset")
+          ),
+          column(
+            width = 4,
+            # Add the checkbox for confidence interval
+            checkboxInput("confInterval", "Show Confidence Interval", value = TRUE)
+          ),
+          column(
+            width = 4,
+            # Show the user data
+            tableOutput("user_data")
+          )
+        )
+      )
+)
 ```
 
 ## Your Turn 3: server.R
 
 ```{r}
 #| eval: false
+#| echo: true
+library(shiny)
+library(youdrawitR)
+
+function(input, output, session) {
+  custom_data <- reactive({
+    customDataGen(
+      # Paste your previously written code for data generation here!
+      conf_int = input$confInterval
+    )
+  })
+  
+  observeEvent(input$completedLineData, {
+    # This block will be executed whenever completedLineData is updated from the JS side
+    output$user_data <- renderTable({
+      jsonlite::fromJSON(input$completedLineData)
+    })
+  })
+  
+  observeEvent(input$resetBtn, {
+    session$sendCustomMessage("resetAction", "true")
+  })
+
+  output$shinydrawr <- r2d3::renderD3({ drawr(custom_data(), 
+                                              hide_buttons = T, 
+                                              conf_int = input$confInterval) })
+}
 
 ```
 
