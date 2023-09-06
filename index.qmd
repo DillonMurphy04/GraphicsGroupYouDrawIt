@@ -371,11 +371,23 @@ In our code, we generate the data using the customDataGen function and define th
 The resulting drawr visualization presents horsepower against miles per gallon. Lets take a look at the plot and try for ourselves. As Emily has described it to me before, drawing loess regression is like giving a child a crayon and asking them to draw a line between the points on a graph.
 :::
 
-## Your Turn 1
+## Your Turn 1: Using `drawr`
 
 <!-- Let user install and use package -->
 
-Using the documentation `help(drawr)`, change xxxx
+<https://earobinson95.github.io/youdrawitR/articles/customDataGen.html>
+
+1. Install and load `youdrawitR`
+
+2. Generate data using the `customDataGen` function and your favorite R data set
+
+3. Pass your generated data into the `drawr` function to create your interactive graphic
+
+4. Using the documentation `help(drawr)`:
++ hide the true line from showing after the user finishes
++ change the color of the drawn line
++ adjust where the user starts drawing the line
++ find your favorite argument/input
 
 <!-- Questions about what worked -->
 
@@ -418,6 +430,41 @@ On the right, provided is a straightforward method to save your visualization di
 :::
 
 # Using `youdrawitR` with Shiny
+
+## 'Can You Draw It?' Shiny App
+
+-   Real time interaction with plot:
+    -   Change data sources: Input, Simulate, or Use R Dataset
+    -   Drawing, saving users drawn lines, and resetting functionalities
+    -   Customization: Color changes, tooltips, confidence intervals.
+-   Access:
+    -   [Open in Browser](https://dillonmurphy.shinyapps.io/youdrawit/) or run locally
+
+```{r echo=TRUE, eval = FALSE}
+shiny::runApp(system.file("shinyapp/youdrawit", package = "youdrawitR"))
+```
+
+::: notes
+Now, let me introduce the 'Can You Draw It?' Shiny App, which is integrated within the youdrawitR package and provides an easy way to use all of the packages features. This app provides real-time interaction with youdrawitR plots.
+
+There are multiple ways to access the app. If you're looking to check it out on your browser, simply click on the 'Open in Browser' link. If you have the youdrawitR package installed, you can run it locally using the R command provided. The shiny app is also embedded into the next slide, so you can use it by following along on the presentation as we continue. I will go over all of the buttons, features, and customization options on the next slide using the embedded shiny app and I encourage you all to use it alongside me and provide any suggestions you may have for improvements.
+:::
+
+## Try For Yourself
+
+<iframe width="100%" height="100%" src="https://dillonmurphy.shinyapps.io/youdrawit/">
+
+</iframe>
+
+::: notes
+
+:::
+
+## Your Turn 2: Drawing Cat Competition
+
+<!-- Add screenshot of Dillon's cat drawing -->
+
+Add your cat to the slide deck at <https://docs.google.com/presentation/d/1prNX34FKP45x9FkRH_f35ejHhDUAdrfRHWAjY_hacQU/edit?usp=sharing>
 
 ## Integrating Into Shiny
 
@@ -466,36 +513,26 @@ To display the interactive visualizations in a Shiny application, there are just
 Lastly, an important feature of the youdrawitR package is the ability to save the user drawn data for future use. In R it can be simply downloaded with the download data button at any point, but in Shiny the data is sent to Shiny upon completion of the line, where it can then be captured and saved.
 :::
 
-## 'Can You Draw It?' Shiny App
+## Your Turn 3: Create a Shiny App
 
--   Real time interaction with plot:
-    -   Change data sources: Input, Simulate, or Use R Dataset
-    -   Drawing, saving users drawn lines, and resetting functionalities
-    -   Customization: Color changes, tooltips, confidence intervals.
--   Access:
-    -   [Open in Browser](https://dillonmurphy.shinyapps.io/youdrawit/) or run locally
+1. File > New File > Shiny Web App (multiple files)
+2. Copy the ui.R and server.R code from the next two slides
+3. Add your generated data and interactive plot from Your Turn 1
+4. Print out the user original line
 
-```{r echo=TRUE, eval = FALSE}
-shiny::runApp(system.file("shinyapp/youdrawit", package = "youdrawitR"))
+## Your Turn 3: ui.R
+
+```{r}
+#| eval: false
+
 ```
 
-::: notes
-Now, let me introduce the 'Can You Draw It?' Shiny App, which is integrated within the youdrawitR package and provides an easy way to use all of the packages features. This app provides real-time interaction with youdrawitR plots.
+## Your Turn 3: server.R
 
-There are multiple ways to access the app. If you're looking to check it out on your browser, simply click on the 'Open in Browser' link. If you have the youdrawitR package installed, you can run it locally using the R command provided. The shiny app is also embedded into the next slide, so you can use it by following along on the presentation as we continue. I will go over all of the buttons, features, and customization options on the next slide using the embedded shiny app and I encourage you all to use it alongside me and provide any suggestions you may have for improvements.
-:::
+```{r}
+#| eval: false
 
-## Try For Yourself
-
-<iframe width="100%" height="100%" src="https://dillonmurphy.shinyapps.io/youdrawit/">
-
-</iframe>
-
-::: notes
-
-:::
-
-## Drawing Cat Competition
+```
 
 # Importance & Uses of `youdrawitR`
 
