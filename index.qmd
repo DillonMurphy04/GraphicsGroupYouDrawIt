@@ -19,7 +19,7 @@ For those unfamiliar with Google Summer of Code, it is a global program that off
 
 I had the privilege of developing the youdrawitR package during the Google Summer of Code 2023, under the guidance of my mentors: Emily, Susan, and Heike,
 
-It was a great experience and I highly recommend this opportunity for students passionate about coding and open-source contributions, especially for those who might consider themselves beginner programmers or developers. It's a great program that taught me lots of practical skills and granted me a decent amount of money. Also, I believe they recently opened up the program for non-students, so any recent grads could also look into this program as a contributor. Or you could look into it as  a mentor to get code supplied for any project you might have.
+It was a great experience and I highly recommend this opportunity for students passionate about coding and open-source contributions, especially for those who might consider themselves beginner programmers or developers. It's a great program that taught me lots of practical skills and granted me a decent amount of money.
 :::
 
 ## Overview of the `youdrawitR` Package
