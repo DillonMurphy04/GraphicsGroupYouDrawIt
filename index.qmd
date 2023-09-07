@@ -1,14 +1,12 @@
 ---
 title: "Overview of the youdrawitR Package"
 title-slide-attributes: 
-  data-notes: Hello everyone, my name is Dillon Murphy, and I'm an undergrad student at Cal Poly in San Luis Obispo, California. Today, I am excited to present an overview of the youdrawitR package with my co-presenter Emily. This package serves as a tool for interactive data visualization in R.
+  data-notes: Hello everyone, my name is Dillon Murphy, and I'm an undergrad student at Cal Poly in San Luis Obispo, California. Today, I am excited to present an overview of the youdrawitR package with my co-presenter Emily. This package serves as a tool for interactive data visualization in R. But before diving into the package, I'd like to briefly go over my experience with Google Summer of Code this summer.
 subtitle: "Interactive Data Visualization in R"
 author: "Dillon Murphy, Cal Poly - San Luis Obispo, CA"
 format: revealjs
 editor: source
 ---
-
-# Introduction
 
 ```{r setup}
 library(youdrawitR)
@@ -17,13 +15,11 @@ library(youdrawitR)
 ## Google Summer of Code 2023 {background-image="images/GSOCtimeline.png" background-size="100%"}
 
 ::: notes
-Before diving into the package, I'd like to briefly touch upon my journey with Google Summer of Code this summer.
-
 For those unfamiliar with Google Summer of Code, it is a global program that offers students stipends to write code for open source projects, and aims to bring student developers into the open source community. If you look at the timeline displayed on this slide, it provides a snapshot of how the program is structured.
 
 I had the privilege of developing the youdrawitR package during the Google Summer of Code 2023, under the guidance of my mentors: Emily, Susan, and Heike,
 
-It was a great experience and I highly recommend this opportunity for students passionate about coding and open-source contributions, especially for those who might consider themselves beginner programmers or developers. It's a great program that taught me lots of practical skills and granted me a decent amount of money.
+It was a great experience and I highly recommend this opportunity for students passionate about coding and open-source contributions, especially for those who might consider themselves beginner programmers or developers. It's a great program that taught me lots of practical skills and granted me a decent amount of money. Also, I believe they recently opened up the program for non-students, so any recent grads could also look into this program as a contributor. Or you could look into it as  a mentor to get code supplied for any project you might have.
 :::
 
 ## Overview of the `youdrawitR` Package
@@ -37,7 +33,7 @@ It was a great experience and I highly recommend this opportunity for students p
 ::: notes
 Alright, now let's get into the primary focus of the presentation, the `youdrawitR` package.
 
-As the name suggests, the primary feature of this package is its interactive nature. `youdrawitR` presents a method for users to actively engage with data. Instead of merely observing static graphs, users can draw and make their own interpretations.
+As the name suggests, the primary feature of this package is its interactive nature. `youdrawitR` presents a method for users to actively engage with data. Instead of just observing static graphs, users can draw and make their own interpretations.
 
 Take a look at the gif on the screen, you'll see an example in action. The user begins by drawing a boundary for the confidence region and then sketches their guess for the line of best fit. After completion of the guess, the real confidence region and line of best fit is overlayed, which allows for a direct comparison. This hands-on approach encourages active participation in data analysis, and allows us to see how our intuitive perceptions align with actual data trends.
 :::
@@ -130,7 +126,7 @@ linear_data <- linearDataGen(
 ::: notes
 Let's briefly go over the functions associated with the data preparation process.
 
-On the left, you can see the customDataGen function. This function allows you to take any existing dataset, like mtcars in this example and make them suitable for the drawr() function. Some of the parameter option include defining your x and y variables, specifying the type of regression, or deciding if you want to generate a 95% confidence interval.
+On the left, you can see the customDataGen function. This function allows you to take any existing dataset, like the cars dataset in this example and make them suitable for the drawr() function. Some of the parameter option include defining your x and y variables, specifying the type of regression, or deciding if you want to generate a 95% confidence interval.
 
 On the right, we have the linearDataGen function. This function is designed to simulate linear data based on the parameters you provide, like the slope, y-intercept, and standard deviation. It generates the simulated data in a format suitable for the drawr() function.
 :::
@@ -373,8 +369,6 @@ The resulting drawr visualization presents horsepower against miles per gallon. 
 
 ## Your Turn 1: Using `drawr`
 
-<!-- Let user install and use package -->
-
 <https://earobinson95.github.io/youdrawitR/articles/customDataGen.html>
 
 1. Install and load `youdrawitR`
@@ -383,11 +377,7 @@ The resulting drawr visualization presents horsepower against miles per gallon. 
 
 3. Pass your generated data into the `drawr` function to create your interactive graphic
 
-4. Using the documentation `help(drawr)`:
-+ hide the true line from showing after the user finishes
-+ change the color of the drawn line
-+ adjust where the user starts drawing the line
-+ find your favorite argument/input
+4. Using the documentation `help(drawr)` make changes to your graphic such as: changing colors, hiding the true line, or adjusting the start of the drawn line (Hint: look at the example in documentation).
 
 <!-- Questions about what worked -->
 
@@ -457,7 +447,15 @@ There are multiple ways to access the app. If you're looking to check it out on 
 </iframe>
 
 ::: notes
+Alright, so here is the Can You Draw It Shiny App. As you can see we load in with some randomly generated data. If you would like to generate more random data you can click here on the button with the dice icon. 
 
+If you would like to input data manually that isn't random you can click on the Change Data button up here, and either input, simulate, or use an R dataset. I'll use an R dataset since it's an easy one to showcase...
+
+There are also tons of customization options, here I can show the tooltip. Also can change the colors of the graph. In the next slide we will be having a drawing a cat competition so changing the color of the drawn line may come in handy then.
+
+You can add new lines using this button just like in R. 
+
+The data is captured upon completion of the line, and then you can save it using the save data button or copy data button. The new lines will be shown in the order that they were drawn.
 :::
 
 ## Your Turn 2: Drawing Cat Competition
@@ -519,6 +517,12 @@ Lastly, an important feature of the youdrawitR package is the ability to save th
 2. Copy the ui.R and server.R code from the next two slides
 3. Add your generated data and interactive plot from Your Turn 1
 4. Print out the user original line
+
+::: notes
+Now you all can try to make your own basic shiny app using youdrawit interactive plots. 
+If you are unfimiliar with shiny just click on file, new file, shiny web app. Personally, I like multiple files for ui and server but that is up to you. 
+In the next 2 slides, I made a small template to create a basic shiny app with your generated data from earlier.
+:::
 
 ## Your Turn 3: ui.R
 
